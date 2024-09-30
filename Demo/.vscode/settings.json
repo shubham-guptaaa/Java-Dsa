@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "recursion"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": []
+}
