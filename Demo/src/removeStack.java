@@ -17,9 +17,10 @@ public class removeStack {
             rt.push(st.pop());
         }
         System.out.println(rt);
-        while (rt.size()>0) {
+        while(rt.size()>0) {
             st.push(rt.pop());
         }
         System.out.println(st);
+        sc.close();
     }
 }
