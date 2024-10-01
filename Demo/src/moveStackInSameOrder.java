@@ -21,11 +21,12 @@ public class moveStackInSameOrder {
         }
         System.out.println(rev);
     Stack<Integer> copy = new Stack<>();
-    System.out.println("Copy of the first stack");
+    System.out.println("Copy of the first stack");  
     while(rev.size()>0){
         copy.push(rev.pop());
     }
     System.out.println(copy);
+    sc.close();
     }
     
 }
