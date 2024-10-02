@@ -24,6 +24,7 @@ public class insertionStack {
             st.push(temp.pop());
         }
         System.out.println(st);
+        sc.close();
     }
 
 }

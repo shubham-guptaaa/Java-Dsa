@@ -57,6 +57,7 @@ public class displayStack {
         System.out.println();
         System.out.println("Display stack using recursion");
         displayStackRec(st);
+        sc.close();
     }
     
 }
