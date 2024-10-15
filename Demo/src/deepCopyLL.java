@@ -11,6 +11,7 @@ public class deepCopyLL {
         Node head;
 
         public Node copyRandomList(Node head){
+            return head;
             
         }
     }
