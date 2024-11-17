@@ -38,13 +38,13 @@ public class permutArrayList {
     // Other Method
 
     static List<List<Integer>> permut(int[] arr){
+        List<List<Integer>> result = new ArrayList<>();
         if(arr.length == 0){
-            List<List<Integer>> result = new ArrayList<>();
             for(int num : arr){
                 result.add(new ArrayList<>(num));
             } 
-            return result;
         }
+        return result;
 
     }
     
