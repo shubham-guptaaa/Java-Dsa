@@ -3,7 +3,7 @@ import java.util.*;
 public class removeBracket {
     public static String makeValidBracket(String str){
         int n = str.length();
-        Stack<Integer> st = new Stack<>();
+        Stack<Character> st = new Stack<>();
         StringBuilder result = new StringBuilder();
         for(int i = 0; i<n; i++){
             char ch = str.charAt(i);
