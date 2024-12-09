@@ -1,4 +1,4 @@
-package codevita;
+// package codevita;
 import java.util.*;
 public class SegmentDisplay {
     private static final Map<Integer, List<Character>> alp = new HashMap<>();
