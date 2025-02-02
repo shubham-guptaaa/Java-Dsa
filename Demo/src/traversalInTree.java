@@ -34,6 +34,23 @@ public class traversalInTree {
         System.out.print(root.val+" ");
         inOrder(root.right);
     }
+    public static void nthLevel(Node root, int n){
+        if(root==null) return;
+        if(n==1) System.out.print(root.val+" ");
+        nthLevel(root.left, n-1);
+        nthLevel(root.right, n-1);
+    }
+    public static int height(Node root){
+        if(root==null || root.left == null && root.right==null) return 0;
+        return 1 + Math.max(height(root.left), height(root.right));
+
+    }
+    public static void levelOrderTraversal(Node root, int n){
+        if(root==null) return;
+        if(n==1) System.out.print(root.val+" ");
+        levelOrderTraversal(root.left, n-1);
+        levelOrderTraversal(root.right, n-1);
+    }
 
     public static void main(String[] args){
         Node root = new Node(2);
@@ -57,5 +74,15 @@ public class traversalInTree {
         System.out.println();
         System.out.println("Inorder Traversal: -");
         inOrder(root);
+        System.out.println();
+        System.out.println("Nth level order Traversal: -");
+        nthLevel(root, 3);
+        System.out.println();
+        System.out.println("Level Order Traversal: -");
+        int h = height(root)+1;
+        for(int i = 0; i<=h; i++){
+            levelOrderTraversal(root, i);
+        }
+
     }
 }
