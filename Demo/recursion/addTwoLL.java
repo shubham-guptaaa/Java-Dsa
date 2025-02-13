@@ -15,7 +15,7 @@ public class addTwoLL {
         
     }
     
-    class Node{
+    static class Node{
         int val;
         Node next;
         
