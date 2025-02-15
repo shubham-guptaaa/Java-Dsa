@@ -1,10 +1,10 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class printCoordinateMaze {
     public static void main(String[] args) {
         boolean[][] board = {{true,true,true},{true,true,true},{true,true,true}};
-        // System.out.println(printAllPath("", board, 0, 0)); 
         int[][] path = new int [board.length][board[0].length];
         System.out.println(printAllCoordinatesPath("", board, 0, 0, path, 1));
         
@@ -13,10 +13,16 @@ public class printCoordinateMaze {
         if(r==board.length-1 && c==board[0].length-1){
             path[r][c] = steps;
             for(int[] arr : path){
-                System.out.println(arr.toString());
+                System.out.println(Arrays.toString(arr));
             }
+            System.out.println("Path: " + p);
             System.out.println();
+
+            // Reset the path for backtracking purposes
+            path[r][c] = 0;
+
             List<String> ans = new ArrayList<>();
+            ans.add(p);
             return ans;
 
         }
