@@ -1,4 +1,3 @@
-import java.util.*;
 public class addTwoLL {
     public static void main(String[] args) {
         Node l1 = new Node(2);
