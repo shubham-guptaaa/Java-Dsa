@@ -1,44 +1,51 @@
-import java.util.ArrayList;
-import java.util.List;
-// import java.util.PriorityQueue;
+import java.util.*;
 
 class Solution {
-    private static String largest = "";
+    public int maxSum(int[] nums) {
+        int n = nums.length;
+        if (n == 0) return 0; // Handle empty array case
 
-    public static void generateSplits(String word, int start, int partsLeft, List<String> currentSplit) {
-        int n = word.length();
-        if (partsLeft == 1) {
-            // Add the remaining part of the word as the last part
-            String lastPart = word.substring(start);
-            for (String s : currentSplit) {
-                // Update the largest value found so far
-                if (s.compareTo(largest) > 0) {
-                    largest = s;
-                }
+        Set<Integer> set = new HashSet<>();
+        int l = 0, currSum = 0, maxSum = Integer.MIN_VALUE;
+        int maxElement = nums[0]; // Start with first element
+
+        for (int r = 0; r < n; r++) {
+            maxElement = Math.max(maxElement, nums[r]); // Track max element
+
+            while (set.contains(nums[r])) {
+                set.remove(nums[l]);
+                currSum -= nums[l];
+                l++;
             }
-            if (lastPart.compareTo(largest) > 0) {
-                largest = lastPart;
-            }
-            return;
+
+            set.add(nums[r]);
+            currSum += nums[r];
+
+            maxSum = Math.max(maxSum, currSum);
         }
-        for (int i = start + 1; i <= n - partsLeft + 1; i++) {
-            String currentPart = word.substring(start, i);
-            currentSplit.add(currentPart);
-            generateSplits(word, i, partsLeft - 1, currentSplit);
-            currentSplit.remove(currentSplit.size() - 1);
-        }
+
+        return maxSum;
     }
 
-    public static String answerString(String word, int numFriends) {
-        largest = "";
-        generateSplits(word, 0, numFriends, new ArrayList<>());
-        return largest;
-    }
-
+    // Test function
     public static void main(String[] args) {
-        // Example usage:
-        String word = "bif";
-        int numFriends = 2;
-        System.out.println(answerString(word, numFriends)); // Output the largest string
+        Solution sol = new Solution();
+
+        int[][] testCases = {
+            {4, 2, 4, 5, 6},      
+            {5, 1, 2, 3, 5, 2},   
+            {100},               
+            {-1, -2, -3},        
+            {1, 2, 3, 4, 5},     
+            {10, 20, 10, 30, 40}, 
+            {-100},
+            {-4,-1,-4},
+            {2,-10,6}                  
+        };
+
+        for (int i = 0; i < testCases.length; i++) {
+            int result = sol.maxSum(testCases[i]);
+            System.out.println("Test Case " + (i + 1) + ": " + result);
+        }
     }
 }
