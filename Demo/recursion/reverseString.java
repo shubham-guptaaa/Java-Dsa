@@ -1,16 +1,18 @@
 public class reverseString {
-    public static String reverse(String str, int idx){
+    public static String reverse(String str, String ans, int idx){
         //Base case
-        if(idx==str.length()) return "";
-        // recursive call
-        String sp = reverse(str, idx+1);
+        // if(idx==str.length()) return "";
+        // // recursive call
+        // String sp = reverse(str, idx+1);
 
-        return sp+str.charAt(idx);
+        // return sp+str.charAt(idx);
+        if(idx<0) return ans;
+        return reverse(str, ans+str.charAt(idx), idx-1);
         
     }
     public static void main(String[] args) {
         String str = "abcde";
-        int idx = 0;
-        System.out.println(reverse(str, idx));
+        int idx = str.length();
+        System.out.println(reverse(str, "",idx-1));
     }
 }
